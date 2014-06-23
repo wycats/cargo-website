@@ -1,8 +1,14 @@
 @charset "utf-8";
 @import "compass/reset";
+@import "compass/css3/images";
 @import "fonts";
 @import "solarized";
 @import "colors";
+
+html {
+  @include background(image-url("noise.png"), radial-gradient(top
+  center, circle, $light-green 0%, $dark-green 750px));
+}
 
 pre {
   font-family: "Consolas";
@@ -19,7 +25,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  background-color: $dark-green;
+  /*background-color: $dark-green;*/
 }
 
 h1 {
@@ -48,7 +54,7 @@ main {
   background-color: $cream;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0px 0px 3px 3px $second-green;
+  box-shadow: 0px 0px 5px 2px $dark-green;
 
   p {
     color: $dark-green;

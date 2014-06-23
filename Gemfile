@@ -5,7 +5,6 @@ source 'http://rubygems.org'
 gem "middleman", "~>3.3.3"
 gem "middleman-blog"
 
-gem 'bootstrap-sass', '~> 2.2.2.0'
 gem "middleman-syntax"
 gem "redcarpet"
 

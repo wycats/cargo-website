@@ -1,5 +1,5 @@
 ---
-title: Welcome to Middleman
+title: Cargo, Rust's Package Manager
 ---
 
 # Let's Get Started
