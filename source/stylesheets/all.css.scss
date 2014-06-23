@@ -1,0 +1,71 @@
+@charset "utf-8";
+@import "compass/reset";
+@import "fonts";
+@import "solarized";
+@import "colors";
+
+pre {
+  font-family: "Consolas";
+}
+
+body {
+  font-family: "Roboto";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-green;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 20px 0 10px 0;
+  font-weight: bold;
+  color: $purple;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+code:not(.highlight) {
+  font-family: Consolas;
+  color: $purple;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  width: 900px;
+  align-self: center;
+
+  background-color: $cream;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 3px $second-green;
+
+  p {
+    color: $dark-green;
+    margin: 10px 0;
+  }
+}
+
+img.logo {
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+pre {
+  background: $beige;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid lighten(#93a1a1, 20%);
+  border-radius: 4px;
+  line-height: 120%;
+}
