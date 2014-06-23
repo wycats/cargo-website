@@ -28,11 +28,23 @@ body {
   /*background-color: $dark-green;*/
 }
 
+a {
+  color: $orange;
+
+  &:hover {
+    color: $purple;
+  }
+}
+
 h1 {
   font-size: 24px;
   margin: 20px 0 10px 0;
   font-weight: bold;
   color: $purple;
+
+  code:not(.highlight) {
+    color: $orange;
+  }
 }
 
 h1:first-child {
@@ -66,9 +78,22 @@ main {
     text-align: center;
   }
 
-  p {
+  p, ul {
     color: $dark-green;
     margin: 10px 0;
+    line-height: 150%;
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    list-style-type: disc;
+  }
+
+  strong {
+    font-weight: bold;
   }
 }
 
