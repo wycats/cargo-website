@@ -2,9 +2,9 @@
 title: Cargo, Rust's Package Manager
 ---
 
-# Let's Get Started
+Cargo downloads your project's dependencies and compiles your project
 
-Cargo downloads your project's dependencies and builds your project.
+# Let's Get Started
 
 To start, add a `Cargo.toml` to the root of your project. Here's a
 simple one to get you started.

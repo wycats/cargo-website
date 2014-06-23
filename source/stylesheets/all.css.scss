@@ -57,6 +57,15 @@ main {
   border-radius: 5px;
   box-shadow: 0px 0px 5px 2px $dark-green;
 
+  p:first-child {
+    color: $light-green;
+    font-weight: 500;
+    margin-top: 3px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $second-green;
+    text-align: center;
+  }
+
   p {
     color: $dark-green;
     margin: 10px 0;
