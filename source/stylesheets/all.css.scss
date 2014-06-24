@@ -45,6 +45,12 @@ h1 {
   code:not(.highlight) {
     color: $orange;
   }
+
+  &:hover {
+    .headerlink {
+      display: inline-block;
+    }
+  }
 }
 
 h1:first-child {
@@ -144,4 +150,9 @@ footer {
       text-decoration: underline;
     }
   }
+}
+
+.headerlink {
+  display: none;
+  text-decoration: none;
 }
