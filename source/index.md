@@ -72,7 +72,7 @@ use color::{RGB, ToHSV};
 fn main() {
     println!("Converting RGB to HSV!");
     let red = RGB::new(255u8, 0, 0);
-    println!("HSL: {}", red.to_hsv::<f32>());
+    println!("HSV: {}", red.to_hsv::<f32>());
 }
 ```
 
