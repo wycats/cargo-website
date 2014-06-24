@@ -105,7 +105,7 @@ specify a `#[crate_id=<name>]` inside the `.rs` file. Rust will soon
 support passing this information from the command-line to `rustc`, which
 will change this requirement.
 
-# The `[[bin]]` Section
+# The `bin` Section
 
 Cargo will produce one executable for every `bin` section.
 
