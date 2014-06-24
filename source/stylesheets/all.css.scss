@@ -71,8 +71,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  min-width: 300px;
-  max-width: 900px;
+  width: 900px;
   margin-bottom: 10px;
 
   background-color: $cream;
