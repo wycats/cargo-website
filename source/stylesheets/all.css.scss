@@ -25,7 +25,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  /*background-color: $dark-green;*/
+  align-items: center;
 }
 
 a {
@@ -51,6 +51,17 @@ h1:first-child {
   margin-top: 0;
 }
 
+h2 {
+  font-size: 18px;
+  margin: 15px 0 5px 0;
+  color: $purple;
+  font-weight: bold;
+
+  code:not(.highlight) {
+    color: $orange;
+  }
+}
+
 code:not(.highlight) {
   font-family: Consolas;
   color: $purple;
@@ -61,7 +72,6 @@ main {
   flex-direction: column;
 
   width: 900px;
-  align-self: center;
   margin-bottom: 10px;
 
   background-color: $cream;
@@ -76,6 +86,14 @@ main {
     padding-bottom: 15px;
     border-bottom: 1px solid $second-green;
     text-align: center;
+
+    a {
+      color: $dark-green;
+
+      &:hover {
+        color: $second-green;
+      }
+    }
   }
 
   p, ul {
@@ -109,4 +127,21 @@ pre {
   border: 1px solid lighten(#93a1a1, 20%);
   border-radius: 4px;
   line-height: 120%;
+}
+
+footer {
+  margin-top: 10px;
+  border-top: 1px solid $purple;
+  padding-top: 10px;
+  width: 900px;
+  text-align: center;
+
+  a {
+    color: $purple;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

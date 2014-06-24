@@ -1,15 +1,15 @@
 @import "colors";
 
-.highlight { background-color: $beige }
+.highlight { background-color: $beige; color: #586E75 }
 .highlight .c { color: #93A1A1 } /* Comment */
 .highlight .err { color: #93A1A1 } /* Error */
 .highlight .g { color: #93A1A1 } /* Generic */
 .highlight .k { color: #859900 } /* Keyword */
 .highlight .l { color: #93A1A1 } /* Literal */
-.highlight .n { color: #93A1A1 } /* Name */
+.highlight .n { color: #CB4B16 } /* Name */
 .highlight .o { color: #859900 } /* Operator */
 .highlight .x { color: #CB4B16 } /* Other */
-.highlight .p { color: #93A1A1 } /* Punctuation */
+.highlight .p { color: #586E75 } /* Punctuation */
 .highlight .cm { color: #586E75 } /* Comment.Multiline */
 .highlight .cp { color: #859900 } /* Comment.Preproc */
 .highlight .c1 { color: #586E75 } /* Comment.Single */

@@ -17,7 +17,14 @@
     <%= image_tag "Cargo-Logo-Small.png", class: "logo" %>
 
     <main>
+      <p>Cargo downloads your <a href="https://rust-lang.org">Rust</a> project's dependencies and builds your project</p>
+
       <%= yield %>
+
+      <footer>
+        <%= link_to "Frequently Asked Questions", "faq.html" %>
+      </footer>
     </main>
+
   </body>
 </html>
