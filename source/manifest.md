@@ -42,6 +42,34 @@ your Rust code, for example.
 build = "make"
 ```
 
+# The `[dependencies.*]` Sections
+
+You list dependencies using `[dependencies.<name>]`. For example, if you
+wanted to depend on both `hammer` and `color`:
+
+```toml
+[package]
+
+# ...
+
+[dependencies.hammer]
+
+version = "0.5.0" # optional
+git = "https://github.com/wycats/hammer.rs"
+
+[dependencies.color]
+
+git = "https://github.com/bjz/color-rs"
+```
+
+You can specify the source of a dependency in one of two ways at the moment:
+
+* `git = "<git-url>"`: A git repository with a `Cargo.toml` in its root.
+* `path = "<relative-path>"`: A path relative to the current `Cargo.toml`
+  with a `Cargo.toml` in its root.
+
+Soon, you will be able to load packages from the Cargo registry as well.
+
 # The `[[lib]]` and `[[bin]]` Sections
 
 A Cargo package can export at most one library, and can build as many

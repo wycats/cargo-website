@@ -40,7 +40,7 @@ Hello world!
 
 # Depend on a Library
 
-To depend on a library, add it to your Cargo.toml.
+To depend on a library, add it to your `Cargo.toml`.
 
 ```toml
 [package]
