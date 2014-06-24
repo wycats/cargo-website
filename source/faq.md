@@ -2,8 +2,6 @@
 title: Frequently Asked Questions
 ---
 
-Cargo downloads your project's dependencies and compiles your project
-
 # Is the plan to use Github as a package repository?
 
 No. The plan for Cargo is to have a central registry of packages, like
