@@ -71,7 +71,8 @@ main {
   display: flex;
   flex-direction: column;
 
-  width: 900px;
+  min-width: 300px;
+  max-width: 900px;
   margin-bottom: 10px;
 
   background-color: $cream;
@@ -133,7 +134,7 @@ footer {
   margin-top: 10px;
   border-top: 1px solid $purple;
   padding-top: 10px;
-  width: 900px;
+  width: 100%;
   text-align: center;
 
   a {
