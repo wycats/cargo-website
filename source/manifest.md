@@ -14,7 +14,7 @@ version = "1.0.0"    # the current version, obeying semver
 authors = [ "wycats@example.com" ]
 ```
 
-All three of these sections are mandatory. Cargo bakes in the concept of
+All three of these fields are mandatory. Cargo bakes in the concept of
 [Semantic Versioning](http://semver.org/), so make sure you follow some
 basic rules:
 
