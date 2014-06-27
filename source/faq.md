@@ -105,11 +105,10 @@ and platforms ("use `fsevents`, but only in OSX in `development` or
 
 # Does Cargo work on Windows? <a href="#windows" id="windows" class="headerlink">¶</a>
 
-We intend for Cargo to work on Windows, but Travis CI does not support
-Windows builds, so we aren't running continuous integration against
-Windows yet.
+Yes!
 
-If you find a Windows issue, we consider it a bug, so [please file an
+All commits to Cargo are required to pass the local test suite on Windows.
+If, however, you find a Windows issue, we consider it a bug, so [please file an
 issue][3].
 
 [3]: https://github.com/rust-lang/cargo/issues
