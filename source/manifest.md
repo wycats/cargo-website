@@ -64,7 +64,9 @@ git = "https://github.com/bjz/color-rs"
 
 You can specify the source of a dependency in one of two ways at the moment:
 
-* `git = "<git-url>"`: A git repository with a `Cargo.toml` in its root.
+* `git = "<git-url>"`: A git repository with a `Cargo.toml` in its root. The
+  `rev`, `tag`, and `branch` options are also recognized to use something other
+  than the `master` branch.
 * `path = "<relative-path>"`: A path relative to the current `Cargo.toml`
   with a `Cargo.toml` in its root.
 
@@ -164,6 +166,6 @@ name = "hiya" # defaults to src/fun-times.rs
 [[bin]]
 
 name = "folks"
-# you must specify a #[crate_id=folks] inside this file 
-path = "src/exe/folkster.rs" 
+# you must specify a #[crate_id=folks] inside this file
+path = "src/exe/folkster.rs"
 ```
