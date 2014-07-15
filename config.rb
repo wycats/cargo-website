@@ -60,6 +60,8 @@ set :fonts_dir, 'fonts'
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
 
+set :relative_links, true
+
 ignore "**/*.ttf"
 
 # Build-specific configuration
@@ -75,8 +77,6 @@ configure :build do
 
   # Use relative URLs
   activate :relative_assets
-
-  activate :relative_links
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
