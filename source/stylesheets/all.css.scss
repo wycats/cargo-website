@@ -43,7 +43,8 @@ h1 {
   color: $purple;
 
   code:not(.highlight) {
-    color: $orange;
+    color: darken($orange, 5%);
+    vertical-align: bottom;
   }
 
   &:hover {
@@ -64,7 +65,7 @@ h2 {
   font-weight: bold;
 
   code:not(.highlight) {
-    color: $orange;
+    color: darken($orange, 5%);
   }
 }
 

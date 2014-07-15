@@ -72,100 +72,63 @@ You can specify the source of a dependency in one of two ways at the moment:
 
 Soon, you will be able to load packages from the Cargo registry as well.
 
-# The `[[lib]]` and `[[bin]]` Sections
+# The Project Layout
 
-A Cargo package can export at most one library, and can build as many
-executables as you like.
+If your project is an executable, name the main source file `src/main.rs`.
+If it is a library, name the main source file `src/lib.rs`.
 
-The double-brackets around `lib` and `bin` indicate that the sections
-may be repeated to represent a list. At the moment, Cargo only supports
-a single `lib`, but we use the double-bracket syntax to reserve the
-ability to support multiple `lib` sections in the future.
+Cargo will also treat any files located in `src/bin/*.rs` as
+executables.
 
-# The `lib` Section
+When you run `cargo build`, Cargo will compile all of these files into
+the `target` directory.
 
-If your project produces a library (the main `.rs` file does not have a
-`main` function), you should include a `[[lib]]` section.
+```
+▾ src/          # directory containing source files
+  ▾ bin/        # (optional) directory containing executables
+    *.rs
+  lib.rs        # the main entry point for libraries and packages
+  main.rs       # the main entry point for projects producing executables
+▾ examples/     # (optional) examples
+  *.rs
+▾ tests/        # (optional) integration tests
+  *.rs
+```
+
+# Examples
+
+Files located under `examples` are example uses of the functionality
+provided by the library.
+
+They must compile as executables (with `main.rs`) and load in the
+library by using `extern crate <library-name>`. They are compiled when
+you run your tests to protect them from bitrotting.
+
+# Tests
+
+When you run `cargo test`, Cargo will:
+
+* Compile your library's unit tests, which are in files reachable from
+  `lib.rs`. Any sections marked with `#[cfg(test)]` will be included.
+* Compile your library's integration tests, which are located in
+  `tests`. Files in `tests` load in your library by using `extern crate
+  <library-name>` like any other code that depends on it.
+* Compile your library's examples.
+
+## Building Dynamic Libraries
+
+If your project produces a library, you can specify which kind of
+library to build by explicitly listing the library in your `Cargo.toml`:
 
 ```toml
-[package]
-
 # ...
 
 [[lib]]
 
-name = "color" # the name of the library, the same as the package name
+crate-types = [ "dylib" ]
 ```
 
-## The `crate-type` Field
-
-Top-level packages can specify the kind of library for Cargo to build:
-
-```toml
-[package]
-
-# ...
-
-[[lib]]
-
-name = "hello-world"
-crate-type = ["dylib", "staticlib"]
-```
-
-This will produce a `.a` file and an `.so` (or `.dylib` on OSX).
-
-## The `path` Field
-
-You can specify the location of the main `.rs` file by using the `path`
-field.
-
-```toml
-[package]
-
-# ...
-
-[[lib]]
-
-name = "hello-world"
-path = "src/lib.rs"
-```
-
-As a temporary measure, if you use the `path` field, you **must**
-specify a `#[crate_id=<name>]` inside the `.rs` file. Rust will soon
-support passing this information from the command-line to `rustc`, which
-will change this requirement.
-
-# The `bin` Section
-
-Cargo will produce one executable for every `bin` section.
-
-If you don't specify a `path`, the path defaults to:
-
-* If you don't also have a `lib`, `src/<name>.rs`
-* If you also have a `lib`, `src/bin/<name>.rs`
-
-As a temporary measure, if you use the `path` field, and the crate name
-is not **exactly** the same as the last part of the file name, you
-**must** specify a `#[crate_id=<name>]` inside the `.rs` file. Rust will
-soon support passing this information from the command-line to `rustc`,
-which will change this requirement.
-
-```toml
-[package]
-
-# ...
-
-[[bin]]
-
-name = "hello-world"
-
-[[bin]]
-
-name = "hiya" # defaults to src/fun-times.rs
-
-[[bin]]
-
-name = "folks"
-# you must specify a #[crate_id=folks] inside this file
-path = "src/exe/folkster.rs"
-```
+The available options are `dylib` and `staticlib`. You should only use
+this option in a project. Cargo will always compile **packages**
+(dependencies) based on the requirements of the project that includes
+them.
