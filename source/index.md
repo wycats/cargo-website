@@ -12,9 +12,9 @@ $ curl www.rust-lang.org/rustup.sh | sudo bash
 ```
 
 This will get you the latest Rust nightly for your platform along with
-the latest Cargo. You should run the script almost every day to get the latest updates.
+the latest Cargo. You should run this script almost every day to get the latest updates.
    
-For Windows, you can directly download the latest [Rust](http://static.rust-lang.org/dist/rust-nightly-install.exe)
+If you are on Windows, you can directly download the latest [Rust](http://static.rust-lang.org/dist/rust-nightly-install.exe)
 and [Cargo](http://static.rust-lang.org/cargo-dist/cargo-nightly-win.tar.gz) nightlies.  
 
 Alternatively, you can build Cargo from source.
