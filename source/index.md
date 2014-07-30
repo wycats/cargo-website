@@ -19,8 +19,6 @@ and [Cargo](http://static.rust-lang.org/cargo-dist/cargo-nightly-win.tar.gz) nig
 
 Alternatively, you can build Cargo from source.
 
-
-
 # Let's Get Started
 
 To start a new project with Cargo, use `cargo new`:

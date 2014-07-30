@@ -8,7 +8,6 @@ The first section in a `Cargo.toml` is `[package]`.
 
 ```toml
 [package]
-
 name = "hello-world" # the name of the package
 version = "1.0.0"    # the current version, obeying semver
 authors = [ "wycats@example.com" ]
@@ -36,9 +35,7 @@ your Rust code, for example.
 
 ```toml
 [package]
-
 # ...
-
 build = "make"
 ```
 
@@ -49,16 +46,13 @@ wanted to depend on both `hammer` and `color`:
 
 ```toml
 [package]
-
 # ...
 
 [dependencies.hammer]
-
 version = "0.5.0" # optional
 git = "https://github.com/wycats/hammer.rs"
 
 [dependencies.color]
-
 git = "https://github.com/bjz/color-rs"
 ```
 
