@@ -78,7 +78,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  width: 900px;
+  max-width: 900px;
   margin-bottom: 10px;
 
   background-color: $cream;
@@ -134,6 +134,8 @@ pre {
   border: 1px solid lighten(#93a1a1, 20%);
   border-radius: 4px;
   line-height: 120%;
+  max-width: calc(100vw - 45px);
+  overflow-x: auto;
 }
 
 footer {
