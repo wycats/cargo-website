@@ -125,10 +125,11 @@ library to build by explicitly listing the library in your `Cargo.toml`:
 
 [[lib]]
 
+name = "..."
 crate-types = [ "dylib" ]
 ```
 
-The available options are `dylib` and `staticlib`. You should only use
+The available options are `dylib` and `rlib`. You should only use
 this option in a project. Cargo will always compile **packages**
 (dependencies) based on the requirements of the project that includes
 them.
