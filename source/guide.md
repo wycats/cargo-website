@@ -192,7 +192,7 @@ are the conventions that Cargo uses:
 * Source code goes in the `src` directory.
 * External tests go in the `tests` directory.
 * The default executable file is `src/main.rs`.
-* The defualt library file is `src/lib.rs`.
+* The default library file is `src/lib.rs`.
 
 # Cargo.toml vs Cargo.lock
 
@@ -314,7 +314,7 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
 </code></pre>
 
-Of course, if your projet has tests, you'll see more output, with the
+Of course, if your project has tests, you'll see more output, with the
 correct number of tests.
 
 ## Travis-CI
