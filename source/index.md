@@ -81,6 +81,6 @@ class="s1">   Fresh</span> hello-world v0.1.0
 class="s1">   Running</span> `target/hello_world`
 Hello world!</code></pre>
 
-# Going farther
+# Going Further
 
 For more details on using Cargo, check out the [Cargo Guide](/guide.html)
