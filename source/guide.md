@@ -192,6 +192,7 @@ are the conventions that Cargo uses:
 * Source code goes in the `src` directory.
 * External tests go in the `tests` directory.
 * The default executable file is `src/main.rs`.
+* Other executables can be placed in `src/bin/*.rs`.
 * The default library file is `src/lib.rs`.
 
 # Cargo.toml vs Cargo.lock
