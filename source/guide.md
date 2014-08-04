@@ -223,10 +223,10 @@ authors = ["Yehuda Katz <wycats@example.com>"]
 git = "https://github.com/bjz/color-rs.git"
 ```
 
-This projet has a single dependency, on the `color` library. We've stated in
+This project has a single dependency, on the `color` library. We've stated in
 this case that we're relying on a particular Git repository that lives on
 GitHub. Since we haven't specified any other information, Cargo assumes that
-we intend to use the latest commit on the `master` branch to build our projet.
+we intend to use the latest commit on the `master` branch to build our project.
 
 Sound good? Well, there's one problem: If you build this project today, and
 then you send a copy to me, and I build this project tomorrow, something bad
