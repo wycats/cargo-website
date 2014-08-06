@@ -115,7 +115,7 @@ When you run `cargo test`, Cargo will:
   <library-name>` like any other code that depends on it.
 * Compile your library's examples.
 
-## Building Dynamic Libraries
+# Building Dynamic Libraries
 
 If your project produces a library, you can specify which kind of
 library to build by explicitly listing the library in your `Cargo.toml`:
