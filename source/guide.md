@@ -297,6 +297,62 @@ This will write out a new `Cargo.lock` with the new version information.
 
 # Overriding Dependencies
 
+Sometimes, you may want to override one of Cargo's dependencies. For example,
+let's say you're working on a project, Bar, which depends on a package Foo.
+You find a bug in Foo, and you want to write a patch. Here's what Bar's
+`Cargo.toml` looks like:
+
+```toml
+[package]
+
+name = "hello-world"
+version = "0.1.0"
+authors = ["Yehuda Katz <wycats@example.com>"]
+
+[dependencies.foo]
+
+git = "https://github.com/someone/foo.git"
+```
+
+You check out a local copy of Foo, let's say in your `~/src` directory:
+
+```shell
+$ cd ~/src
+$ git clone https://github.com/someone/foo.git
+```
+
+You'd like to have Bar use your local version of Foo, rather than the one on
+GitHub, you'd normally want to change the `Cargo.toml`:
+
+```toml
+[dependencies.foo]
+
+path = "/home/you/src/foo"
+```
+
+The problem with this is that it's really easy to accidentally check in, and
+push up. Cargo solves this problem by allowing you to have a local configuration
+that gives you an override, so that you don't accidentally commit an incorrect
+`Cargo.toml`.
+
+To do this, create a `.cargo` directory, and put a file called `config` inside.
+The best place to put this is inside your 'code' directory. In our example, since
+we're keeping all of our projects in `~/src`, we'd make `~/src/.cargo/config`.
+
+Inside that file, put this:
+
+```
+paths = ["/home/you/src/foo"]
+```
+
+This array should be filled with directories that contain a `Cargo.toml`. In
+this instance, we're just adding Foo, so it will be the only one that's
+overridden.
+
+With this configuration, Cargo will look at the local directory instead of the
+one specified in the `Cargo.toml`. You get a local override, and you won't
+accidentally push a broken `Cargo.toml` to everyone else.
+
 # Tests
 
 Cargo can run your tests with the `cargo test` command. Cargo runs tests in two
