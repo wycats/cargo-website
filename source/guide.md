@@ -298,60 +298,64 @@ This will write out a new `Cargo.lock` with the new version information.
 # Overriding Dependencies
 
 Sometimes, you may want to override one of Cargo's dependencies. For example,
-let's say you're working on a project, Bar, which depends on a package Foo.
-You find a bug in Foo, and you want to write a patch. Here's what Bar's
-`Cargo.toml` looks like:
+let's say you're working on a project, `conduit-static`, which depends on
+the package `conduit`. You find a bug in `conduit`, and you want to write a
+patch. Here's what `conduit-static`'s `Cargo.toml` looks like:
 
 ```toml
 [package]
 
-name = "hello-world"
+name = "conduit-static"
 version = "0.1.0"
 authors = ["Yehuda Katz <wycats@example.com>"]
 
-[dependencies.foo]
+[dependencies.conduit]
 
-git = "https://github.com/someone/foo.git"
+git = "https://github.com/conduit-rust/conduit.git"
 ```
 
-You check out a local copy of Foo, let's say in your `~/src` directory:
+You check out a local copy of `conduit`, let's say in your `~/src` directory:
 
 ```shell
 $ cd ~/src
-$ git clone https://github.com/someone/foo.git
+$ git clone https://github.com/conduit-rust/conduit.git
 ```
 
-You'd like to have Bar use your local version of Foo, rather than the one on
-GitHub, you'd normally want to change the `Cargo.toml`:
+You'd like to have `conduit-static` use your local version of `conduit`,
+rather than the one on GitHub, while you fix the bug.
 
-```toml
-[dependencies.foo]
+Cargo solves this problem by allowing you to have a local configuration
+that specifies an **override**. If Cargo finds this configuration when
+building your package, it will use the override on your local machine
+instead of the source specified in your `Cargo.toml`.
 
-path = "/home/you/src/foo"
-```
+Cargo looks for a directory named `.cargo` up the directory hierarchy of
+your project. If your project is in `/Users/wycats/src/conduit-static`,
+it will search for a `.cargo` in:
 
-The problem with this is that it's really easy to accidentally check in, and
-push up. Cargo solves this problem by allowing you to have a local configuration
-that gives you an override, so that you don't accidentally commit an incorrect
-`Cargo.toml`.
+* `/Users/wycats/src/conduit-static`
+* `/Users/wycats/src`
+* `/Users/wycats`
+* `/Users`
+* `/`
 
-To do this, create a `.cargo` directory, and put a file called `config` inside.
-The best place to put this is inside your 'code' directory. In our example, since
-we're keeping all of our projects in `~/src`, we'd make `~/src/.cargo/config`.
+This allows you to specify your overrides in a parent directory that
+includes commonly used packages that you work on locally, and share them
+with all projects.
+
+To specify overrides, create a `.cargo/config` file in some ancestor of
+your project's directory (common places to put it is in the root of
+your code directory or in your home directory).
 
 Inside that file, put this:
 
 ```
-paths = ["/home/you/src/foo"]
+paths = ["/home/you/src/conduit"]
 ```
 
 This array should be filled with directories that contain a `Cargo.toml`. In
-this instance, we're just adding Foo, so it will be the only one that's
+this instance, we're just adding `conduit`, so it will be the only one that's
 overridden.
-
-With this configuration, Cargo will look at the local directory instead of the
-one specified in the `Cargo.toml`. You get a local override, and you won't
-accidentally push a broken `Cargo.toml` to everyone else.
 
 # Tests
 
