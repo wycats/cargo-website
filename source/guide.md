@@ -328,6 +328,4 @@ install:
 script:
   - cargo build --verbose
   - cargo test --verbose
-env:
-  - LD_LIBRARY_PATH=/usr/local/lib
 ```
