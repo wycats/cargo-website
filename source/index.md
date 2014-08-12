@@ -8,7 +8,7 @@ The easiest way to get Cargo is to get the Rust nightly build by using
 the `rustup` script:
 
 ```shell
-$ curl www.rust-lang.org/rustup.sh | sudo bash
+$ curl https://static.rust-lang.org/rustup.sh | sudo bash
 ```
 
 This will get you the latest Rust nightly for your platform along with
