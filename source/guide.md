@@ -66,7 +66,7 @@ Here's what's in `src/main.rs`:
 
 ```rs
 fn main() {
-    println!("Hello world!");
+    println!("Hello world!")
 }
 ```
 
@@ -74,12 +74,12 @@ Cargo generated a 'hello world' for us. Let's compile it:
 
 <pre><code class="highlight"><span class="gp">$</span> cargo build
 <span style="font-weight: bold"
-class="s1">   Compiling</span> hello-world v0.1.0</code></pre>
+class="s1">   Compiling</span> hello_world v0.0.1 (file:///Users/wycats/src/hello_world)</code></pre>
 
 And then run it:
 
 ```shell
-$ ./target/hello-world
+$ ./target/hello_world
 Hello world!
 ```
 
@@ -87,7 +87,7 @@ We can also use `cargo run` to compile and then run it, all in one step:
 
 <pre><code class="highlight"><span class="gp">$</span> cargo run
 <span style="font-weight: bold"
-class="s1">   Fresh</span> hello-world v0.1.0
+class="s1">   Fresh</span> hello-world v0.1.0 (file:///Users/wycats/src/hello_world)
 <span style="font-weight: bold"
 class="s1">   Running</span> `target/hello_world`
 Hello world!</code></pre>
@@ -110,7 +110,7 @@ $ cd color-rs
 To build, just use `cargo build`:
 
 <pre><code class="highlight"><span class="gp">$</span> cargo build
-<span style="font-weight: bold" class="s1">   Compiling</span> color v1.0.0 (https://github.com/bjz/color-rs.git)</code></pre>
+<span style="font-weight: bold" class="s1">   Compiling</span> color v0.0.1 (file:///Users/wycats/src/color-rs)</code></pre>
 
 This will fetch all of the dependencies and then build them, along with the
 project.
@@ -157,9 +157,9 @@ Let's tell Cargo to fetch this new dependency and update the `Cargo.lock`:
 Compile it:
 
 <pre><code class="highlight"><span class="gp">$</span> cargo run
-<span style="font-weight: bold" class="s1">   Compiling</span> color v1.0.0 (https://github.com/bjz/color-rs.git#bf739419)
-<span style="font-weight: bold" class="s1">   Compiling</span> hello-world v0.1.0
-$ ./target/hello-world
+<span style="font-weight: bold" class="s1">   Compiling</span> color v0.0.1 (https://github.com/bjz/color-rs.git#bf739419)
+<span style="font-weight: bold" class="s1">   Compiling</span> hello-world v0.1.0 (file:///Users/wycats/src/hello_world)
+<span style="font-weight: bold" class="s1">     Running</span> `target/hello_world`
 Converting RGB to HSV!
 HSV: HSV { h: 0, s: 1, v: 1 }</code></pre>
 
@@ -171,13 +171,14 @@ contains the exact information about which revision we used:
 name = "hello_world"
 version = "0.0.1"
 dependencies = [
- "color 0.0.1 (git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b474269a4)",
+ "color 0.0.1 (git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b474269a4b98)",
 ]
 
 [[package]]
 name = "color"
 version = "0.0.1"
-source = "git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b474269a4"
+source = "git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b474269a4b98"
+
 ```
 
 Now, if `color-rs` gets updated, we will still build with the same revision, until
@@ -214,8 +215,8 @@ on another project:
 ```toml
 [package]
 
-name = "hello-world"
-version = "0.1.0"
+name = "hello_world"
+version = "0.0.1"
 authors = ["Yehuda Katz <wycats@example.com>"]
 
 [dependencies.color]
@@ -254,8 +255,8 @@ manifest like this:
 ```toml
 [package]
 
-name = "hello-world"
-version = "0.1.0"
+name = "hello_world"
+version = "0.0.1"
 authors = ["Yehuda Katz <wycats@example.com>"]
 
 [dependencies.color]
@@ -271,13 +272,14 @@ Cargo will take the latest commit, and write that information out into our
 name = "hello_world"
 version = "0.0.1"
 dependencies = [
- "color 0.0.1 (git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b47426)",
+ "color 0.0.1 (git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b474269a4b98)",
 ]
 
 [[package]]
 name = "color"
 version = "0.0.1"
-source = "git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b47426"
+source = "git+https://github.com/bjz/color-rs.git#bf739419e2d31050615c1ba1a395b474269a4b98"
+
 ```
 
 You can see that there's a lot more information here, including the exact
@@ -350,7 +352,7 @@ your code directory or in your home directory).
 Inside that file, put this:
 
 ```
-paths = ["/home/you/src/conduit"]
+paths = ["/Users/wycats/src/conduit"]
 ```
 
 This array should be filled with directories that contain a `Cargo.toml`. In
@@ -369,7 +371,12 @@ To run your tests, just run `cargo test`:
 
 <pre><code class="highlight"><span class="gp">$</span> cargo test
 <span style="font-weight: bold"
-class="s1">   Compiling</span> hello-world v0.1.0
+class="s1">   Compiling</span> color v0.0.1 (https://github.com/bjz/color-rs.git#bf739419)
+<span style="font-weight: bold"
+class="s1">   Compiling</span> hello-world v0.0.1 (file:///Users/wycats/src/hello_world)
+<span style="font-weight: bold"
+class="s1">     Running</span> target/test/hello_world-9c2b65bbb79eabce
+
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
