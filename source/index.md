@@ -15,7 +15,7 @@ This will get you the latest Rust nightly for your platform along with
 the latest Cargo. You should run this script almost every day to get the latest updates.
    
 If you are on Windows, you can directly download the latest [Rust](http://static.rust-lang.org/dist/rust-nightly-install.exe)
-and [Cargo](http://static.rust-lang.org/cargo-dist/cargo-nightly-win.tar.gz) nightlies.  
+and [Cargo](http://static.rust-lang.org/cargo-dist/cargo-nightly-i686-pc-mingw32.tar.gz) nightlies.  
 
 Alternatively, you can build Cargo from source.
 
